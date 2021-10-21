@@ -5,6 +5,7 @@ const util = require('util');
 // the random id generator 
 const uuid = require('./helpers/uuid');
 const PORT = 6112;
+const db = require('./db/db.json')
 const app = express();
 
 
@@ -24,14 +25,18 @@ app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
-
-
-
+//delete request
+app.delete("/api/notes/:id", (req, res) =>{
+const id = req.params.id
+console.log(id)
+res.j
+  
+});
 
 //get request for a new note
 
 app.get('/api/notes', (req, res) => {
-  res.status(200).json(`${req.method} request recevied to get notes`)
+  res.status(200).json(db)
 
   console.info(`${req.method} yeah. the request was recived for the note thing`)
 })
