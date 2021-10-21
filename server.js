@@ -28,8 +28,45 @@ app.get('/notes', (req, res) =>
 //delete request
 app.delete("/api/notes/:id", (req, res) => {
   const id = req.params.id
-  console.log(id)
-  res.j
+  // console.log(id)
+
+  fs.readFile('./db/db.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+    } else {
+      // Convert string into JSON object
+      const parsedEdit = JSON.parse(data);
+      // console.info(parsedEdit)
+
+      for (let i = 0; i < parsedEdit.length; i++) {
+        // console.log(parsedEdit[i])
+        if (parsedEdit[i].id == id){
+          console.log('its here!')
+        } 
+          
+        
+       
+        
+      }
+
+     
+
+      // Add a new review
+      // parsedReviews.push(newReview);
+
+      // Write updated reviews back to the file
+      // fs.writeFile(
+      //   './db/reviews.json',
+      //   JSON.stringify(parsedReviews, null, 4),
+      //   (writeErr) =>
+      //     writeErr
+      //       ? console.error(writeErr)
+      //       : console.info('Successfully updated reviews!')
+      // );
+    }
+  });
+ 
+  
 
 });
 
@@ -51,9 +88,10 @@ app.post('/api/notes', (req, res) => {
 
   if (title && text) {
     const newNote = {
+      id: uuid(),
       title,
       text,
-      id: uuid(),
+     
     };
 
     //this shows the json i put in the body.
