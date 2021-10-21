@@ -7,6 +7,7 @@ const uuid = require('./helpers/uuid');
 const PORT = process.env.PORT || 6112;
 const db = require('./db/db.json')
 const app = express();
+const test = util.promisify(fs.readFile)
 
 
 // Middleware for parsing JSON and urlencoded form data
@@ -15,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 //makes the public folder avalible
 app.use(express.static('public'));
 
-//  Route for the base url
+//  Route for the base urpostl
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/index.html'))
 });
@@ -72,9 +73,16 @@ app.delete("/api/notes/:id", (req, res) => {
 //get request for a new note
 
 app.get('/api/notes', (req, res) => {
-  res.status(200).json(db)
+  console.log(db)
+  
+return test("./db/db.json", "utf8").then(data => res.json(JSON.parse(data)))
 
-  console.info(`${req.method} yeah. the request was recived for the note thing`)
+  // console.info(`${req.method} yeah. the request was recived for the note thing`)
+})
+
+app.get('/api/test',(req,res)=>{
+  res.json(db)
+  console.log(db)
 })
 
 // post request

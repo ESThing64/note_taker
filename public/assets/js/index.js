@@ -26,6 +26,7 @@ const hide = (elem) => {
 let activeNote = {};
 
 const getNotes = () =>
+
   fetch('/api/notes', {
     method: 'GET',
     headers: {
@@ -157,8 +158,9 @@ const renderNoteList = async (notes) => {
   if (jsonNotes.length === 0) {
     noteListItems.push(createLi('No saved Notes', false));
   }
-
+  console.log(typeof jsonNotes)
   jsonNotes.forEach((note) => {
+    
     const li = createLi(note.title);
     li.dataset.note = JSON.stringify(note);
 
@@ -181,3 +183,8 @@ if (window.location.pathname === '/notes') {
 }
 
 getAndRenderNotes();
+
+fetch("/api/test",(err,data)=>{
+  if(err) throw err;
+  console.log(data);
+})
