@@ -41,28 +41,27 @@ app.delete("/api/notes/:id", (req, res) => {
       for (let i = 0; i < parsedEdit.length; i++) {
         // console.log(parsedEdit[i])
         if (parsedEdit[i].id == id){
-          console.log('its here!')
+          console.log('Removed', parsedEdit[i])
+          parsedEdit.splice(i, 1)
+          
+          console.log('here is the new array', parsedEdit)
+
         } 
           
-        
-       
-        
+            
       }
 
      
-
-      // Add a new review
-      // parsedReviews.push(newReview);
-
-      // Write updated reviews back to the file
-      // fs.writeFile(
-      //   './db/reviews.json',
-      //   JSON.stringify(parsedReviews, null, 4),
-      //   (writeErr) =>
-      //     writeErr
-      //       ? console.error(writeErr)
-      //       : console.info('Successfully updated reviews!')
-      // );
+      // save the new array to the jsonfile
+     
+      fs.writeFile(
+        './db/db.json',
+        JSON.stringify(parsedEdit, null, 4),
+        (writeErr) =>
+          writeErr
+            ? console.error(writeErr)
+            : console.info('Successfully delete the note!')
+      );
     }
   });
  
