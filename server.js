@@ -16,9 +16,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 //  Route for the base url
-app.get('/', (req, res) =>
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/index.html'))
-);
+});
 
 //  Route for the notes url
 app.get('/notes', (req, res) =>
@@ -26,11 +26,11 @@ app.get('/notes', (req, res) =>
 );
 
 //delete request
-app.delete("/api/notes/:id", (req, res) =>{
-const id = req.params.id
-console.log(id)
-res.j
-  
+app.delete("/api/notes/:id", (req, res) => {
+  const id = req.params.id
+  console.log(id)
+  res.j
+
 });
 
 //get request for a new note
@@ -53,7 +53,7 @@ app.post('/api/notes', (req, res) => {
     const newNote = {
       title,
       text,
-      note_id: uuid(),
+      id: uuid(),
     };
 
     //this shows the json i put in the body.
