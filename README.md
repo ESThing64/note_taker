@@ -1,5 +1,9 @@
 # Note Taker
 
+## Deployed project
+[Link on heroku](https://intense-shelf-26175.herokuapp.com)
+
+
 ## Description
 This is the best note taker you will find. It is crossplatform so it can replace apple notes! Yes, with this app you can take notes. 
 
