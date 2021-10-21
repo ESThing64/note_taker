@@ -4,7 +4,7 @@ const fs = require('fs');
 const util = require('util');
 // the random id generator 
 const uuid = require('./helpers/uuid');
-const PORT = 6112;
+const PORT = process.env.PORT || 3001;
 const db = require('./db/db.json')
 const app = express();
 
