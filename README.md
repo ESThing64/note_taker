@@ -5,12 +5,12 @@
 
 
 ## Description
-This is the best note taker you will find. It is crossplatform so it can replace apple notes! Yes, with this app you can take notes. 
+This is the best note taker you will find. It is crossplatform so it can replace apple notes! Yes, with this app you can use to take notes. I think that's it... 
 
 ## Modules
 
 * [express](https://expressjs.com)
-* [darkmode-js](https://www.npmjs.com/package/darkmode-js)
+
 
 ## Installation
 
@@ -20,7 +20,7 @@ npm i
 
 
 ## Demo
-* [blah blah](www.googledrivelink.cxm)
+* [Click here for a video demo](https://watch.screencastify.com/v/C59VCnlyLXQjY97M6g5r)
 
 
 
@@ -28,4 +28,4 @@ npm i
 
 ## Known issues
 
-* When deleting a note. It doesn't automatically display the note deleted. A page refresh is required.
+* Doesn't work well on phones
