@@ -9,7 +9,8 @@ This is the best note taker you will find. It is crossplatform so it can replace
 
 ## Modules
 
-express
+* [express](https://expressjs.com)
+* [darkmode-js](https://www.npmjs.com/package/darkmode-js)
 
 ## Installation
 

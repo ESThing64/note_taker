@@ -13,8 +13,11 @@ const test = util.promisify(fs.readFile)
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-//makes the public folder avalible
 app.use(express.static('public'));
+
+//===========================================================================
+// ############################ Routes ######################################
+//===========================================================================
 
 //  Route for the base urpostl
 app.get('/', (req, res) => {
@@ -25,6 +28,11 @@ app.get('/', (req, res) => {
 app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
+
+
+//===========================================================================
+// ############################ Route Methods ###############################
+//===========================================================================
 
 //delete request
 app.delete("/api/notes/:id", (req, res) => {
@@ -80,10 +88,7 @@ return test("./db/db.json", "utf8").then(data => res.json(JSON.parse(data)))
   // console.info(`${req.method} yeah. the request was recived for the note thing`)
 })
 
-app.get('/api/test',(req,res)=>{
-  res.json(db)
-  console.log(db)
-})
+
 
 // post request
 
@@ -129,7 +134,7 @@ app.post('/api/notes', (req, res) => {
       status: 'success',
       body: newNote,
     }
-    console.log("🚀 ~ file: server.js ~ line 82 ~ app.post ~ response", response)
+   
 
     res.status(201).json(response);
   } else {
@@ -140,7 +145,7 @@ app.post('/api/notes', (req, res) => {
 });
 
 
-
+//===========================================================================
 
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
