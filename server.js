@@ -49,32 +49,28 @@ app.delete("/api/notes/:id", (req, res) => {
 
       for (let i = 0; i < parsedEdit.length; i++) {
         // console.log(parsedEdit[i])
-        if (parsedEdit[i].id == id){
+        if (parsedEdit[i].id == id) {
           console.log('Removed', parsedEdit[i])
           parsedEdit.splice(i, 1)
-          
           console.log('here is the new array', parsedEdit)
+        }
 
-        } 
-          
-            
       }
-
-     
       // save the new array to the jsonfile
-     
+
       fs.writeFile(
         './db/db.json',
         JSON.stringify(parsedEdit, null, 4),
         (writeErr) =>
           writeErr
             ? console.error(writeErr)
-            : console.info('Successfully delete the note!')
+            : res.json('done'), 
+            console.info('Successfully delete the note!')
       );
     }
   });
- 
-  
+
+
 
 });
 
@@ -82,8 +78,8 @@ app.delete("/api/notes/:id", (req, res) => {
 
 app.get('/api/notes', (req, res) => {
   console.log(db)
-  
-return test("./db/db.json", "utf8").then(data => res.json(JSON.parse(data)))
+
+  return test("./db/db.json", "utf8").then(data => res.json(JSON.parse(data)))
 
   // console.info(`${req.method} yeah. the request was recived for the note thing`)
 })
@@ -103,7 +99,7 @@ app.post('/api/notes', (req, res) => {
       id: uuid(),
       title,
       text,
-     
+
     };
 
     //this shows the json i put in the body.
@@ -134,7 +130,7 @@ app.post('/api/notes', (req, res) => {
       status: 'success',
       body: newNote,
     }
-   
+
 
     res.status(201).json(response);
   } else {

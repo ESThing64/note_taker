@@ -91,6 +91,7 @@ const handleNoteDelete = (e) => {
   }
 
   deleteNote(noteId).then(() => {
+    console.log('hey its running')
     getAndRenderNotes();
     renderActiveNote();
   });
@@ -183,8 +184,3 @@ if (window.location.pathname === '/notes') {
 }
 
 getAndRenderNotes();
-
-fetch("/api/test",(err,data)=>{
-  if(err) throw err;
-  console.log(data);
-})

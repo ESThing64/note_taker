@@ -27,5 +27,5 @@ npm i
 
 
 ## Known issues
-* When adding a note. It doesn't automatically display the note added. A page refresh is required.
+
 * When deleting a note. It doesn't automatically display the note deleted. A page refresh is required.
