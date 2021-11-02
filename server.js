@@ -64,7 +64,7 @@ app.delete("/api/notes/:id", (req, res) => {
         (writeErr) =>
           writeErr
             ? console.error(writeErr)
-            : res.json('done'), 
+            : res.json(parsedEdit), 
             console.info('Successfully delete the note!')
       );
     }
