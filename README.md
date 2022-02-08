@@ -1,7 +1,7 @@
 # Note Taker
 
 ## Deployed project
-[Link on heroku](https://intense-shelf-26175.herokuapp.com)
+[Link on heroku](https://noteakerx.herokuapp.com)
 
 
 ## Description
